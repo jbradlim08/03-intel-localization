@@ -271,6 +271,35 @@ body {
   margin-inline: calc(50% - 50vw);
 }
 
+.faq-band {
+  background: #ffffff;
+}
+
+.faq-card {
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.faq-card .card-body {
+  padding: clamp(2rem, 3vw, 3rem);
+}
+
+.faq-card h2 {
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+}
+
+.faq-card .accordion-button {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 600;
+}
+
+.faq-card .accordion-body {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.7;
+}
+
 .sustainability-highlights {
   background: var(--soft-white);
 }
@@ -287,7 +316,7 @@ body {
   background: var(--soft-white);
   padding: 44px 20px;
   border-radius: 12px;
-  margin-top: 80px;
+  margin: 80px 0;
 }
 
 .newsletter-inner {
@@ -357,7 +386,6 @@ body {
 }
 
 .site-footer {
-  margin-top: 40px;
   padding: 22px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   background: rgba(10, 29, 51, 0.75);
