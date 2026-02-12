@@ -276,7 +276,7 @@ body {
 }
 
 .sustainability-highlights div{
-  padding: 60px 0;
+  padding: 60px 10px;
 }
 
 .newsletter-section {
@@ -287,6 +287,7 @@ body {
   background: var(--soft-white);
   padding: 44px 20px;
   border-radius: 12px;
+  margin-top: 80px;
 }
 
 .newsletter-inner {
@@ -423,6 +424,11 @@ html[dir="rtl"] .timeline {
 }
 
 @media (max-width: 680px) {
+  .timeline-viewport::before,
+  .timeline-viewport::after {
+    display: none;
+  }
+
   .navbar {
     gap: 18px;
   }
