@@ -47,6 +47,7 @@ body {
   left: 0;
   right: 0;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 50px;
   padding: 14px 18px;
@@ -134,16 +135,22 @@ body {
   margin-bottom: 18px;
 }
 
+.timeline-viewport {
+  position: relative;
+  isolation: isolate;
+}
+
 .timeline {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   gap: 22px;
+  scroll-snap-type: x mandatory;
   overflow-x: auto;
   overflow-y: visible;
   padding: 12px 0;
-  scroll-snap-type: x mandatory;
   scroll-behavior: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.55) rgba(10, 29, 51, 0.35);
@@ -163,27 +170,28 @@ body {
   border-radius: 999px;
 }
 
-.timeline::before,
-.timeline::after {
+.timeline-viewport::before,
+.timeline-viewport::after {
   content: '';
-  position: sticky;
-  top: 0;
+  display: block;
+  position: absolute;
+  top: 12px;
+  bottom: 0;
   width: 60px;
-  flex: 0 0 60px;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
+  transition: box-shadow 0.25s ease, background 0.25s ease;
 }
 
-.timeline::before {
+.timeline-viewport::before {
   left: 0;
   background: linear-gradient(90deg, rgba(10, 29, 51, 0.82) 0%, rgba(10, 29, 51, 0) 100%);
 }
 
-.timeline::after {
+.timeline-viewport::after {
   right: 0;
   background: linear-gradient(270deg, rgba(10, 29, 51, 0.82) 0%, rgba(10, 29, 51, 0) 100%);
 }
-
 
 
 .timeline-card {
@@ -257,6 +265,23 @@ body {
   color: var(--timeline-hint);
 }
 
+.full-bleed-band {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* RTL mode only for timeline cards. */
+
+html[dir="rtl"] .timeline-card,
+html[dir="rtl"] .timeline-card p {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .timeline {
+  flex-direction: row-reverse;
+}
+
 @media (min-width: 900px) {
   .timeline {
     flex-wrap: nowrap;
@@ -265,15 +290,13 @@ body {
 }
 
 @media (max-width: 680px) {
-  .timeline {
-    padding-left: 0;
-    flex-direction: column;
-    overflow-x: hidden;
+  .navbar {
+    gap: 18px;
   }
 
-  .timeline::before,
-  .timeline::after {
-    display: none;
+  .timeline {
+    overflow-x: hidden;
+    flex-direction: column;
   }
 
   .timeline-card {
