@@ -14,7 +14,8 @@
   --intel-blue-to-white: linear-gradient(180deg, rgba(147, 204, 248, 0.46) 0%, rgba(255, 255, 255, 0.98) 78%);
   --intel-blue-to-white-card: linear-gradient(180deg, white 1%, rgba(147, 204, 248, 0.679) 0%, rgba(255, 255, 255, 0.98) 78%);
   --timeline-overlay: rgba(0, 57, 103, 0.656);
-  --timeline-hint: rgba(255, 255, 255, 0.7);
+  --soft-white: #ececec;
+  --timeline-hint: var(--soft-white);
 }
 
 * {
@@ -268,6 +269,134 @@ body {
 .full-bleed-band {
   width: 100vw;
   margin-inline: calc(50% - 50vw);
+}
+
+.sustainability-highlights {
+  background: var(--soft-white);
+}
+
+.newsletter-section {
+  position: relative;
+}
+
+.newsletter-strip {
+  background: var(--soft-white);
+  padding: 44px 20px;
+  border-radius: 12px;
+}
+
+.newsletter-inner {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.newsletter-title {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  text-align: center;
+  color: #27384a;
+  margin-bottom: 24px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.newsletter-form {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.newsletter-input {
+  min-height: 48px;
+  border-radius: 0;
+  border: 1px solid #c8c8c8;
+  background: #f7f7f7;
+  color: #1f2f42;
+}
+
+.newsletter-input:focus {
+  border-color: #1f8acc;
+  box-shadow: 0 0 0 0.18rem rgba(31, 138, 204, 0.2);
+}
+
+.newsletter-check-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+
+.newsletter-consent {
+  color: #4c5b6a;
+  font-size: 0.95rem;
+}
+
+.newsletter-check:checked {
+  background-color: #1f8acc;
+  border-color: #1f8acc;
+}
+
+.newsletter-btn {
+  min-height: 48px;
+  background: #1f8acc;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.newsletter-btn:hover,
+.newsletter-btn:focus {
+  color: #fff;
+  background: #1878b3;
+}
+
+.site-footer {
+  margin-top: 40px;
+  padding: 22px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(10, 29, 51, 0.75);
+}
+
+.site-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-footer-copy {
+  margin: 0;
+  color: rgba(236, 236, 236, 0.95);
+  font-size: 0.92rem;
+}
+
+.site-footer-nav {
+  display: flex;
+  gap: 18px;
+}
+
+.site-footer-nav a {
+  color: rgba(236, 236, 236, 0.95);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.site-footer-nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+  .newsletter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* RTL mode only for timeline cards. */
