@@ -275,6 +275,10 @@ body {
   background: var(--soft-white);
 }
 
+.sustainability-highlights div{
+  padding: 60px 0;
+}
+
 .newsletter-section {
   position: relative;
 }
